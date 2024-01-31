@@ -31,6 +31,9 @@ class LoginView extends GetView<LoginController> {
                     }),
                 TextFormField(
                     controller: controller.passwordController,
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                     decoration: InputDecoration(hintText: "Masukan Password"),
                     validator: (value) {
                       if (value!.length < 2) {
@@ -45,7 +48,8 @@ class LoginView extends GetView<LoginController> {
                       controller.login();
                     },
                     child: Text("Login"))),
-                ElevatedButton(onPressed: ()=>Get.toNamed(Routes.REGISTER), child: Text("Open Register"))
+                ElevatedButton(onPressed: ()=>Get.toNamed(Routes.REGISTER),
+                    child: Text("Open Register"))
               ],
             ),
           )),
