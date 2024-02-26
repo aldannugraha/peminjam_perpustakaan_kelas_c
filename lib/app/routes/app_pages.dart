@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/addBook/bindings/add_book_binding.dart';
+import '../modules/addBook/views/add_book_view.dart';
 import '../modules/add_peminjaman/bindings/add_peminjaman_binding.dart';
 import '../modules/add_peminjaman/views/add_peminjaman_view.dart';
 import '../modules/baru/baru.dart';
@@ -55,6 +57,11 @@ class AppPages {
     GetPage(
       name: _Paths.BARU,
       page: () => MyApp(),
+    ),
+    GetPage(
+      name: _Paths.ADD_BOOK,
+      page: () => const AddBookView(),
+      binding: AddBookBinding(),
     ),
   ];
 }

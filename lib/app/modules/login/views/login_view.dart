@@ -31,7 +31,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                   Text(
-                    'Login bro1',
+                    'Login bro',
                     style: TextStyle(
                       fontSize: 20,
                       height: -20,

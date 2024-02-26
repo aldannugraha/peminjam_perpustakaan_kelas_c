@@ -30,7 +30,7 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                   Text(
-                    'REGISTRASI DULU BRO1',
+                    'REGISTRASI DULU BRO',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
