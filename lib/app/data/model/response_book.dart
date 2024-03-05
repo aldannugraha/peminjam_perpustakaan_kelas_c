@@ -1,6 +1,6 @@
 /// status : 200
 /// message : "success"
-/// data : [{"id":1,"kategori_id":1,"judul":"Belajar mengenal angka","penulis":"kusnaidi","penerbit":"PT alangka","tahun_terbit":2024,"created_at":"2024-01-09T05:43:09.000000Z","updated_at":"2024-01-09T05:43:09.000000Z","kategori":{"id":1,"nama":"umum"}}]
+/// data : [{"id":1,"kategori_id":1,"judul":"Belajar mengenal angka","penulis":"kusnaidi","penerbit":"PT alangka","gambar":"logo.png","tahun_terbit":2024,"created_at":"2024-01-09T05:43:09.000000Z","updated_at":"2024-01-09T05:43:09.000000Z","kategori":{"id":1,"nama":"umum"}}]
 
 class ResponseBook {
   ResponseBook({
@@ -39,6 +39,7 @@ class ResponseBook {
 /// judul : "Belajar mengenal angka"
 /// penulis : "kusnaidi"
 /// penerbit : "PT alangka"
+/// gambar : "logo.png"
 /// tahun_terbit : 2024
 /// created_at : "2024-01-09T05:43:09.000000Z"
 /// updated_at : "2024-01-09T05:43:09.000000Z"
@@ -51,6 +52,7 @@ class DataBook {
     this.judul,
     this.penulis,
     this.penerbit,
+    this.gambar,
     this.tahunTerbit,
     this.createdAt,
     this.updatedAt,
@@ -62,6 +64,7 @@ class DataBook {
     judul = json['judul'];
     penulis = json['penulis'];
     penerbit = json['penerbit'];
+    gambar = json['gambar'];
     tahunTerbit = json['tahun_terbit'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -72,6 +75,7 @@ class DataBook {
   String? judul;
   String? penulis;
   String? penerbit;
+  String? gambar;
   String? tahunTerbit;
   String? createdAt;
   String? updatedAt;
@@ -84,6 +88,7 @@ class DataBook {
     map['judul'] = judul;
     map['penulis'] = penulis;
     map['penerbit'] = penerbit;
+    map['gambar'] = gambar;
     map['tahun_terbit'] = tahunTerbit;
     map['created_at'] = createdAt;
     map['updated_at'] = updatedAt;
