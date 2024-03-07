@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_c/app/data/constant/endpoint.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/data/model/response_book.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/routes/app_pages.dart';
 
@@ -13,29 +14,60 @@ class BookView extends GetView<BookController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('BookView'),
-          centerTitle: true,
-        ),
-        body: controller.obx((state) => ListView.separated(
-          itemCount: state!.length,
-          itemBuilder: (context, index) {
-            DataBook dataBook = state[index];
-            return ListTile(
-              title: Text("${dataBook.judul}"),
-              subtitle: Text(
-                  "Penulis ${dataBook.penulis}\n${dataBook.penerbit} - ${dataBook.tahunTerbit}"),
-              trailing: ElevatedButton(onPressed: ()=> Get.toNamed(Routes.ADD_PEMINJAMAN, parameters: {
-                'id': (dataBook.id  ?? 0).toString(),
-                'judul': dataBook.judul ?? '-'
-              }), child: Text("Pinjam"),
-            ),
+      appBar: AppBar(
+        title: const Text('BookView'),
+        centerTitle: true,
+      ),
+      body: controller.obx(
+            (state) {
+          if (state == null) {
+            // Menampilkan widget loading jika state null
+            return Center(child: CupertinoActivityIndicator());
+          } else {
+            return ListView.separated(
+              itemCount: state.length,
+              itemBuilder: (context, index) {
+                DataBook dataBook = state[index];
+                return ListTile(
+                  leading: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: Image.network(
+                      "${Endpoint.image}${dataBook.gambar}",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  title: Text("${dataBook.judul}"),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text("Penulis: "),
+                          Text(
+                            "${dataBook.penulis}",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Text("${dataBook.penerbit} - ${dataBook.tahunTerbit}"),
+                    ],
+                  ),
+                  trailing: ElevatedButton(
+                    onPressed: () => Get.toNamed(Routes.ADD_PEMINJAMAN,
+                        parameters: {
+                          'id': (dataBook.id ?? 0).toString(),
+                          'judul': dataBook.judul ?? '-'
+                        }),
+                    child: Text("Pinjam"),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) => Divider(),
             );
-
-          },
-          separatorBuilder: (context, index) => Divider(),
-        ), onLoading: Center(child: CupertinoActivityIndicator())
-        )
+          }
+        },
+      ),
     );
   }
 }
