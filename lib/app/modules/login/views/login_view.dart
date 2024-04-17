@@ -39,6 +39,10 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                   SizedBox(height: 10),
+                  // Button untuk memilih jenis login
+
+                  SizedBox(height: 20),
+                  // Form login
                   Form(
                     key: controller.formKey,
                     child: Column(
@@ -80,6 +84,7 @@ class LoginView extends GetView<LoginController> {
                             ? CircularProgressIndicator()
                             : ElevatedButton(
                           onPressed: () {
+                            // Memanggil fungsi login dengan endpoint sesuai pilihan
                             controller.login();
                           },
                           style: ButtonStyle(
@@ -113,8 +118,7 @@ class LoginView extends GetView<LoginController> {
           height: 50,
           child: Center(
             child: GestureDetector(
-              onTap: () {
-              },
+              onTap: () {},
               child: Text(
                 'Copyright ©Meildy 2024',
                 style: TextStyle(

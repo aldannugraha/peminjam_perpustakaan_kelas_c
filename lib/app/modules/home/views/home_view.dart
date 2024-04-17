@@ -8,10 +8,19 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
-      ),
+        appBar: AppBar(
+          title: const Text('HomeView'),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: () {
+                // Memanggil fungsi logout ketika tombol logout ditekan
+                Get.find<HomeController>().logout;
+              },
+              icon: Icon(Icons.logout),
+            ),
+          ],
+        ),
         body: Column(
           children: [
             Container(

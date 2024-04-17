@@ -30,7 +30,7 @@ class BookView extends GetView<BookController> {
                 DataBook dataBook = state[index];
                 return ListTile(
                   leading: SizedBox(
-                    width: 100,
+                    width: 45,
                     height: 100,
                     child: Image.network(
                       "${Endpoint.image}${dataBook.gambar}",

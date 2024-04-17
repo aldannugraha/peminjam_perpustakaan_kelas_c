@@ -11,6 +11,7 @@ abstract class Routes {
   static const ADD_PEMINJAMAN = _Paths.ADD_PEMINJAMAN;
   static const BARU = _Paths.BARU;
   static const ADD_BOOK = _Paths.ADD_BOOK;
+  static const HOME1 = _Paths.HOME1;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ADD_PEMINJAMAN = '/add-peminjaman';
   static const BARU = '/baru';
   static const ADD_BOOK = '/add-book';
+  static const HOME1 = '/home1';
 }
